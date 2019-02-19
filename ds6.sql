@@ -37,7 +37,7 @@ wss = select d_week_seq, ss_store_sk,
       sum(case when (d_day_name='Saturday') then ss_sales_price else null end) sat_sales
 	  from store_sales, date_dim
 	  where d_date_sk = ss_sold_date_sk
-	  group by d_week_seq,ss_store_sk with hint(no_inline);
+	  group by d_week_seq,ss_store_sk ;
  
 while (:_year < 1209) DO
 
