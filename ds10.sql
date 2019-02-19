@@ -25,8 +25,8 @@ as begin
 declare dms integer; -- 1176
 dms := :dmsInfo;
 
-v0 = select ss_customer_sk, ss_item_sk, ss_sold_date_sk from store_sales with hint(no_inline);
-v1 = select cs_bill_customer_sk, cs_item_sk, cs_sold_date_sk from catalog_sales with hint(no_inline);
+v0 = select ss_customer_sk, ss_item_sk, ss_sold_date_sk from store_sales ;
+v1 = select cs_bill_customer_sk, cs_item_sk, cs_sold_date_sk from catalog_sales ;
 
 while(:dms < 1209) DO
 	ssci = ( select ss_customer_sk customer_sk
