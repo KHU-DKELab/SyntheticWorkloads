@@ -141,8 +141,7 @@ v4 = select t_s_secyear.customer_id
  order by t_s_secyear.customer_id
          ,t_s_secyear.customer_first_name
          ,t_s_secyear.customer_last_name
-         ,t_s_secyear.customer_preferred_cust_flag 
-         with hint(no_inline);
+         ,t_s_secyear.customer_preferred_cust_flag;
      	
 WHILE (:_year < 2002) DO
    select top 100 customer_id, :_year from :v4 where 
