@@ -106,8 +106,7 @@ v3 = select t_s_secyear.customer_id
 	 order by t_s_secyear.customer_id
 	         ,t_s_secyear.customer_first_name
 	         ,t_s_secyear.customer_last_name
-	         ,t_s_secyear.customer_email_address
-	with hint(no_inline);
+	         ,t_s_secyear.customer_email_address;
 	
 WHILE (:_year < 2002) DO
 	select top 100 * from :v3 where 
