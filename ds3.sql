@@ -52,14 +52,14 @@ mss_child = (select c_customer_sk, sum(ss.ss_quantity * ss.ss_sales_price) csale
             and ss.ss_sold_date_sk = dd.d_date_sk group by c_customer_sk, d_year) ;
 
 mss_child_1 = (select max(csales) tpcds_cmax  from :mss_child  where d_year in (:_year, :_year+1) group by c_customer_sk) ; 
-max_store_sales = select max(tpcds_cmax) from :mss_child_1  with hint(no_inline);
+max_store_sales = select max(tpcds_cmax) from :mss_child_1 ;
 
 
 best_ss_customer = select c_customer_sk, sum(ss_quantity * ss_sales_price) ssales
 		           from :ss ss, :ct ct
          		   where ss.ss_customer_sk = ct.c_customer_sk 
 		           group by ct.c_customer_sk 
-		           having sum(ss.ss_quantity* ss.ss_sales_price) > (95/100.0) * (select * from :max_store_sales) with hint(no_inline) ; 
+		           having sum(ss.ss_quantity* ss.ss_sales_price) > (95/100.0) * (select * from :max_store_sales) ; 
 
  
 WHILE (:cnt > 0) DO
