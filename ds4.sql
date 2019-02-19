@@ -54,7 +54,7 @@ max_sub_store_sales2 = select c_customer_sk,sum(ss_quantity*ss_sales_price) csal
          
 frequent_ss_items =
  select * from :frequent_items
-  where d_year in (1999,1999 + 1,1999 + 2,1999 + 3) with hint(no_inline);
+  where d_year in (1999,1999 + 1,1999 + 2,1999 + 3) ;
 
 max_store_sales =
  select max(csales) tpcds_cmax
@@ -67,7 +67,7 @@ best_ss_customer =
   where ss_customer_sk = c_customer_sk
   group by c_customer_sk
   having sum(ss_quantity*ss_sales_price) > (95/100.0) * (select
-  * from :max_store_sales)) with hint(no_inline);
+  * from :max_store_sales)) ;
 
 while (:_month < 13) DO
 v0 = (select c_last_name,c_first_name,sum(cs_quantity*cs_list_price) sales
