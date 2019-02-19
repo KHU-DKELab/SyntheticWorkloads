@@ -40,7 +40,7 @@ ws =
    join date_dim on ws_sold_date_sk = d_date_sk
    where wr_order_number is null
    group by d_year, ws_item_sk, ws_bill_customer_sk
-   ) with hint(no_inline);
+   ) ;
 cs = 
   (select d_year AS cs_sold_year, cs_item_sk,
     cs_bill_customer_sk cs_customer_sk,
@@ -52,7 +52,7 @@ cs =
    join date_dim on cs_sold_date_sk = d_date_sk
    where cr_order_number is null
    group by d_year, cs_item_sk, cs_bill_customer_sk
-   ) with hint(no_inline);
+   ) ;
 ss = 
   (select d_year AS ss_sold_year, ss_item_sk,
     ss_customer_sk,
@@ -64,7 +64,7 @@ ss =
    join date_dim on ss_sold_date_sk = d_date_sk
    where sr_ticket_number is null
    group by d_year, ss_item_sk, ss_customer_sk
-   ) with hint(no_inline);
+   ) ;
    
 while (:_year < 2002) DO
 	select top 100
