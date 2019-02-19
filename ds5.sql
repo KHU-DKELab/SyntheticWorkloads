@@ -26,8 +26,8 @@ as begin
 declare dms integer;
 dms := :dmsInfo; --1176
 
-v1 = select ws_item_sk item_sk, ws_sales_price, ws_item_sk, ws_sold_date_sk from web_sales where ws_item_sk is not NULL with hint(no_inline);
-v2 = select ss_item_sk item_sk , ss_sold_date_sk, ss_item_sk, ss_sales_price from store_sales where ss_item_sk is not NULL with hint(no_inline);
+v1 = select ws_item_sk item_sk, ws_sales_price, ws_item_sk, ws_sold_date_sk from web_sales where ws_item_sk is not NULL ;
+v2 = select ss_item_sk item_sk , ss_sold_date_sk, ss_item_sk, ss_sales_price from store_sales where ss_item_sk is not NULL ;
 
 while (:dms < 1209) DO
 web_v1 = select d_date, sum(sum(ws_sales_price)) over (partition by item_sk order by d_date rows between unbounded preceding and current row) cume_sales , item_sk
