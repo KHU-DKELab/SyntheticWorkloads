@@ -36,7 +36,7 @@ vv4 = select ws_net_paid, ws_bill_customer_sk, ws_sold_date_sk from web_sales;
 ww1 = select c_customer_id, c_first_name, c_last_name, c_customer_sk, ss_sold_date_sk, ss_net_paid from :vv1, :vv2 
 where c_customer_sk = ss_customer_sk ;
 ww2 = select c_customer_id,c_first_name, c_last_name, ws_net_paid, ws_sold_date_sk from :vv1, :vv4 
-where c_customer_sk = ws_bill_customer_sk with ;
+where c_customer_sk = ws_bill_customer_sk ;
 
 
 while (_year < 2002) DO
