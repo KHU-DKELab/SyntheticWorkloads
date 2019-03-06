@@ -4,11 +4,14 @@ in TPC-DS. This query is to generate counts of promotional
 sales and total sales, and their ratio from the web channel 
 for a particular item category and month to customers in a 
 given time zone. The scalar parameter is dms.
+
 The detail steps for generating the procedure with loops
-by transforming CTE query are as follows. Then, for each scalar
-parameter that is used in the query template, the loop, which
-calculates the query iteratively for every range of parameter,
-is inserted.
+by transforming CTE query are as follows. Each CTE table
+variable is transformed to the SQL assignment statement.
+Then, each query with table variables is decomposed.
+Finally, for each scalar parameter that is used in the query
+template, the loop, which calculates the query iteratively for
+every range of parameter, is inserted. 
 ***********************************************************/
 
 create procedure "TPC10_Q97"(in dmsInfo integer)
