@@ -6,17 +6,16 @@ to all other channel sales (minimum 2 to 1 ratio), for
 combinations with at least one store sale and one other 
 channel sale, and to order the output by highest ratio.
 The detail steps for generating the procedure with loops
-by transforming CTE query are as follows. CTE table
-variable is _year.
-Then, for each scalar parameter that is used in the query
+by transforming CTE query are as follows. The scalar parameter
+is year.
+
+The detail steps for generating the procedure with loops
+by transforming CTE query are as follows. Each CTE table
+variable is transformed to the SQL assignment statement.
+Then, each query with table variables is decomposed.
+Finally, for each scalar parameter that is used in the query
 template, the loop, which calculates the query iteratively for
-every range of parameter, is inserted. For the experiments
-using the benchmark procedures, we created three databases
-with different sizes: 10 GB, 50 GB, and 100 GB. Then, we
-observed the scalability of the proposed algorithm using
-these different database sizes. In addition, we show that the
-performance of the algorithm varies according to the table
-statistics, even for the same procedure.
+every range of parameter, is inserted. 
 ***********************************************************/
 
 create procedure "TPC10_78" (in yearInfo integer)
