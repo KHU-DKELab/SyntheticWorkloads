@@ -18,9 +18,6 @@ performance of the algorithm varies according to the table
 statistics, even for the same procedure.
 ***********************************************************/
 
-drop procedure "TPC_DS_Q51";
-call "TPC_DS_Q51"(1176);
-
 create procedure "TPC_DS_Q51"(in dmsInfo integer)
 as begin
 declare dms integer;
