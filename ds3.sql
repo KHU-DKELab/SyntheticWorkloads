@@ -12,8 +12,9 @@ made by our best customers buying our most frequent items.
 The detail steps for generating the procedure with loops 
 by transforming CTE query are as follows. Each CTE table
 variable is transformed to the SQL assignment statement
-Then, we extended this query to recursively compute over
-several periods using a year parameter.
+Then, each query with table variables is decomposed. Finally,
+we extended queries that use a year parameter to recursively
+compute over several periods using while loop.
 ***********************************************************/ 
 CREATE PROCEDURE "sn_1"(in min_sup integer) 
 AS BEGIN
