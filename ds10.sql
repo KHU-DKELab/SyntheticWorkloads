@@ -13,7 +13,7 @@ is inserted.
 
 create procedure "TPC10_Q97"(in dmsInfo integer)
 as begin
-declare dms integer; -- 1176
+declare dms integer;
 dms := :dmsInfo;
 
 v0 = select ss_customer_sk, ss_item_sk, ss_sold_date_sk from store_sales ;
