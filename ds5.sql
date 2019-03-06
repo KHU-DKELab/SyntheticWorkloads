@@ -4,18 +4,15 @@ in TPC-DS. This query is to compute the count of store sales
 resulting from promotions, the count of all store sales and 
 their ratio for specific categories in a particular time 
 zone and for a given year and month.
+The sclar parameter is dms.
+
 The detail steps for generating the procedure with loops
-by transforming CTE query are as follows. CTE table
-variable is :dms.
-Then, for each scalar parameter that is used in the query
+by transforming CTE query are as follows. Each CTE table
+variable is transformed to the SQL assignment statement.
+Then, each query with table variables is decomposed.
+Finally, for each scalar parameter that is used in the query
 template, the loop, which calculates the query iteratively for
-every range of parameter, is inserted. For the experiments
-using the benchmark procedures, we created three databases
-with different sizes: 10 GB, 50 GB, and 100 GB. Then, we
-observed the scalability of the proposed algorithm using
-these different database sizes. In addition, we show that the
-performance of the algorithm varies according to the table
-statistics, even for the same procedure.
+every range of parameter, is inserted. 
 ***********************************************************/
 
 create procedure "TPC_DS_Q51"(in dmsInfo integer)
