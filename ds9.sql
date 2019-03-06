@@ -19,11 +19,6 @@ performance of the algorithm varies according to the table
 statistics, even for the same procedure.
 ***********************************************************/
 
-ALTER SYSTEM CLEAR SQL PLAN CACHE;
-set schema "TPC10"
-drop procedure "TPC10_78"
-call  "TPC10_78" (1998);
-
 create procedure "TPC10_78" (in yearInfo integer)
 as begin
 declare _year integer;
