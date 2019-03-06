@@ -16,9 +16,6 @@ performance of the algorithm varies according to the table
 statistics, even for the same procedure.
 ***********************************************************/
 
-set schema "TPC10"
-
-call "TPC10_Q75"(2002);
 create procedure "TPC10_Q75"(in yearInfo integer)
 as begin
 declare _year integer;
