@@ -21,10 +21,6 @@ these different database sizes. In addition, we show that the
 performance of the algorithm varies according to the table
 statistics, even for the same procedure.
 ***********************************************************/ 
-
-call "sn_1"(3);
-drop procedure  "sn_1";
-
 CREATE PROCEDURE "sn_1"(in min_sup integer) 
 AS BEGIN
 declare _year integer;
