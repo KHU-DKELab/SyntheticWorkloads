@@ -18,11 +18,6 @@ performance of the algorithm varies according to the table
 statistics, even for the same procedure.
 ***********************************************************/
 
--- loop : 4
-
-set schema "TPC10";
-call "TPC10_Q74" (1998)
-drop procedure "TPC10_Q74";
 create procedure "TPC10_Q74" (in yearInfo integer)
 as begin
 
