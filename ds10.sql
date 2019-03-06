@@ -18,8 +18,6 @@ performance of the algorithm varies according to the table
 statistics, even for the same procedure.
 ***********************************************************/
 
-set schema "TPC10";
-call "TPC10_Q97"(1176)
 create procedure "TPC10_Q97"(in dmsInfo integer)
 as begin
 declare dms integer; -- 1176
