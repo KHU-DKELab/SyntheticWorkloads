@@ -22,9 +22,6 @@ performance of the algorithm varies according to the table
 statistics, even for the same procedure.
 ***********************************************************/
 
-ALTER SYSTEM CLEAR SQL PLAN CACHE;
-call "TPC10_23_2"(1);
-drop procedure "TPC10_23_2";
 
 create procedure "TPC10_23_2"(in monthInfo integer) 
 as begin
