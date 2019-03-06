@@ -8,18 +8,12 @@ consecutive years (same as above), to compute the best
 store customers as those that are in the 5th percentile of
 sales, and to compute the total sales of sales in March 
 made by our best customers buying our most frequent items. 
+
 The detail steps for generating the procedure with loops 
-by transforming CTE query are as follows. CTE table 
-variable is :cnt.
-Then, for each scalar parameter that is used in the query
-template, the loop, which calculates the query iteratively for
-every range of parameter, is inserted. For the experiments
-using the benchmark procedures, we created three databases
-with different sizes: 10 GB, 50 GB, and 100 GB. Then, we
-observed the scalability of the proposed algorithm using
-these different database sizes. In addition, we show that the
-performance of the algorithm varies according to the table
-statistics, even for the same procedure.
+by transforming CTE query are as follows. Each CTE table
+variable is transformed to the SQL assignment statement
+Then, we extended this query to recursively compute over
+several periods using a year parameter.
 ***********************************************************/ 
 CREATE PROCEDURE "sn_1"(in min_sup integer) 
 AS BEGIN
